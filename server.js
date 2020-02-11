@@ -2,12 +2,18 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const path = require('path');
+const mongoose = require("mongoose");
+
+
+
 // Database Connection Request
-require('dotenv/config');
-const connectDB = require("./config/connectDB.js");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+
 
 //Bring in models
 const db = require("./models");
+const connectDB = require("./config/connectDB.js");
+
 
 // Create an instance of the express app.
 let app = express();
