@@ -1,7 +1,9 @@
 let mongoose = require("mongoose");
 let db = require("../models");
 
-mongoose.connect(dbConfig, {
+const dbConnectionString = process.env.MONGODB_URI;
+
+mongoose.connect(dbConnectionString, {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true 
